@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Sum</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <label for="numbers">Enter numbers (each on a new line):</label>
+    <textarea id="numbers" rows="4" cols="30"></textarea>
+    <button onclick="calculateSum()">SUM</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateSum() {
+            // Lấy giá trị từ ô textarea
+            var numbersTextArea = document.getElementById('numbers');
+            var numbers = numbersTextArea.value.split('\n');
+
+            // Tính tổng các số
+            var sum = 0;
+            for (var i = 0; i < numbers.length; i++) {
+                var num = parseFloat(numbers[i]);
+                if (!isNaN(num)) {
+                    sum += num;
+                }
+            }
+
+            // Hiển thị kết quả
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Sum: ' + sum;
+        }
+    </script>
+</body>
+</html>
